@@ -1,20 +1,40 @@
+#!/usr/bin/env groovy
+
+def gv
+
 pipeline {
 
     agent any
 
+    environment {
+        SERVER_CREDENTIALS = credentials('nest-project')
+    }
+
     stages {
 
-        stage("build") {
-
+        stage("init") {
             steps {
-                echo 'building the application...'
+                script {
+                    gv = load "script.groovy"
+                }
+            }
+        }
+
+
+        stage("build image") {
+            steps {
+                script {
+                    gv.buildImage()
+                }
             }
         }
     
         stage("test") {
 
             steps {
-                echo 'testing the application...'
+                script{
+                    gv.testApp()
+                }
             }
 
         }
@@ -22,7 +42,9 @@ pipeline {
         stage("deploy") {
 
             steps {
-                echo 'deploying the application...'
+                script {
+                    gv.deployApp()
+                }
             }
         }
 
