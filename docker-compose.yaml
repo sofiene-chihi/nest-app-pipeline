@@ -17,4 +17,3 @@ services:
       - mysql_db
     ports:
       - ${NEST_LOCAL_PORT}:${NEST_DOCKER_PORT}
-
