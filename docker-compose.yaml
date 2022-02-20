@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  mysql_db:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQLDB_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQLDB_DATABASE}
+    volumes:
+      - /var/lib/docker/volumes/nest-app-volume/_data:/var/lib/mysql
+
+  nest:
+    image: nest-app:1.0
+    restart: on-failure
+    depends_on:
+      - mysql_db
+    ports:
+      - ${NEST_LOCAL_PORT}:${NEST_DOCKER_PORT}
+

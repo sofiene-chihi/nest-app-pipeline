@@ -11,7 +11,7 @@ import { Course } from './course/course.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: process.env.HOST,
+      host: 'mysql_db',
       port: 3306,
       username: 'root',
       password: 'sofiene',
