@@ -17,8 +17,8 @@ export class LessonController {
     return this.lessonService.getLesson(id);
   }
 
-  @Post('create')
-  createLesson(@Body() createLessonDto: CreateLessonDto): Promise<Lesson> {
-    return this.lessonService.createLesson(createLessonDto);
+  @Post('create/:id')
+  createLesson(@Body() createLessonDto: CreateLessonDto,@Param('id') id): Promise<Lesson> {
+    return this.lessonService.createLesson(createLessonDto, id);
   }
 }

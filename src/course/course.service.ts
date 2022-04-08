@@ -15,7 +15,11 @@ export class CourseService {
   }
 
   async getCourse(id: number): Promise<Course> {
-    return await this.courseRepository.findOne({ id: id });
+    return await this.courseRepository.findOne(id , {
+      relations: [
+        "lessons"
+      ],
+    });
   }
 
   async createCourse(course: CreateCourseDto): Promise<Course> {

@@ -18,8 +18,11 @@ export class LessonService {
     return await this.lessonRepository.findOne({ id: id });
   }
 
-  async createLesson(lesson: CreateLessonDto): Promise<Lesson> {
-    const newLesson: Lesson = this.lessonRepository.create(lesson);
+  async createLesson(lesson: CreateLessonDto, id): Promise<Lesson> {
+    const newLesson: Lesson = this.lessonRepository.create({
+      ...lesson,
+      course: id,
+    });
 
     return await this.lessonRepository.save(newLesson);
   }

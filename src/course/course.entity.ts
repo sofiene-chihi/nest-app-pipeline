@@ -1,4 +1,4 @@
-import { Lesson } from 'src/lesson/lesson.entity';
+import { Lesson } from '../lesson/lesson.entity';
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity()
