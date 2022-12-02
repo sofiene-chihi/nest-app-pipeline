@@ -5,7 +5,7 @@
   <img src="https://devopedia.org/images/article/403/8230.1645614864.png" alt="github actions" width="120"/> 
 </p>
 
-Since I'm a huge fan of NestJS framework, I created this project to test some **Devops** concepts like creating **CI/CD pipelines** using different technologies to automate the project building and deployment using different tools such as :
+Since I'm a huge fan of NestJS framework, I created this project to test some **Devops** concepts like creating **CI/CD pipelines** to automate the project building and deployment using different tools such as :
 
 * Jenkins
 * Gihtub Actions
